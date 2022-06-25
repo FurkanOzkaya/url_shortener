@@ -1,0 +1,2 @@
+python manage.py handle_zookeeper
+python manage.py runserver 0.0.0.0:8000
