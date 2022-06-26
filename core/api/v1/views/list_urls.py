@@ -13,5 +13,6 @@ class ListInformationsAPI(APIView):
 
     def get(self, _, *args, **kwargs):
         res = list(URLShortener.objects.mongo_find({}, {"_id": 0}))
-
-        return Response(data=res, status=status.HTTP_200_OK)
+        if res:
+            return Response(data=res, status=status.HTTP_200_OK)
+        return Response(data=res, status=status.HTTP_204_NO_CONTENT)

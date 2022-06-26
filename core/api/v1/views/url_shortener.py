@@ -8,7 +8,7 @@ from core.api.v1.common.request_serializer import UrlShortenerSerializer
 
 
 from core.models import URLShortener
-from url_shortener.settings import DEFAULT_ID_COUNT, BASE_URL, HOST_NAME, HOST_NUMBER
+from url_shortener.settings import DEFAULT_ID_COUNT, BASE_URL, HOSTNAME, HOST_NUMBER
 
 
 class UrlShortenerAPI(APIView):
@@ -20,7 +20,7 @@ class UrlShortenerAPI(APIView):
         # take counter from zookeper increase one and create short url for long url, write to db and return short url
         zk = ZooKeeper()
         # TODO CHANGE HERE ACCRODING TO ZOOKEEPER
-        counter = zk.instance.Counter(f'/{HOST_NAME}')
+        counter = zk.instance.Counter(f'/{HOSTNAME}')
         counter += 1
         if counter.value >= int(DEFAULT_ID_COUNT) * (int(HOST_NUMBER) + 2):  # final id must be same with other pods start id
             # out of id, change zookeeper id range for this pod, Notify admin this will not implement
@@ -30,7 +30,7 @@ class UrlShortenerAPI(APIView):
         data = {
             "id": counter.pre_value,
             "url": serializer.validated_data.get("url"),
-            "short_url": short_url,
+            "short_url": res,
             "visitor": 0  # default 0
         }
         try:

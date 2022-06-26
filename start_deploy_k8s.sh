@@ -40,6 +40,8 @@ echo "=========================="
 
 docker push localhost:5000/url_shortener:0.0.1 
 
+kubectl create namespace urlshortener
+
 helm  upgrade --install mongodb  bitnami/mongodb --values=./helm/mongodb_values.yaml -n urlshortener
 
 sleep 10

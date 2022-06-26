@@ -15,17 +15,17 @@
             "django": true,
             "justMyCode": true
         },
-        // {
-        //     "name": "Python: Django UT",
-        //     "type": "python",
-        //     "request": "launch",
-        //     "program": "${workspaceFolder}\\manage.py",
-        //     "args": [
-        //         "test",
-        //         "--settings=url_shortener.test.test_settings"
-        //     ],
-        //     "django": true,
-        //     "justMyCode": true
-        // }
+        {
+            "name": "Python: Django UT",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\manage.py",
+            "args": [
+                "test",
+                "core.api.v1.test"
+            ],
+            "django": true,
+            "justMyCode": true
+        }
     ]
 }

@@ -100,8 +100,8 @@ ZOOKEEPER_PORT = os.environ.get("ZOOKEEPER_PORT", "2181")
 
 DEFAULT_ID_COUNT = os.environ.get("DEFAULT_ID_COUNT", 100000)
 TOTAL_POD_COUNT = os.environ.get("TOTAL_POD_COUNT", 2)
-HOST_NAME = os.environ.get('HOST_NAME', "app-100")
-HOST_NUMBER = HOST_NAME.split("-")[1]
+HOSTNAME = os.environ.get('HOSTNAME', "app-100")
+HOST_NUMBER = HOSTNAME.split("-")[1]
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

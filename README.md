@@ -2,9 +2,6 @@
 
 Url Shortener with ZooKeeper for multiple instance
 
-# TODO 
-- unittest
-- swagger
 
 # How to Support a lot of POD ?
 
@@ -40,7 +37,7 @@ This command will create path according to your enviroment variable.
 - TOTAL_POD_COUNT = Total replica count (needed for create path with specific number)
 - DEFAULT_ID_COUNT = Number of the replica (needed for specifying connection path)
 
-# Deploy
+# Deployment
 
 ## Manual Deploy
 
@@ -75,7 +72,7 @@ docker-compose up --build
 
 - Easly run **start_deploy_k8s.sh** script.
 
-Note: Script writed with helm be sure you have helm and k8s on your computer.
+Note: Script wrote with helm be sure you have helm and k8s on your computer.
 
 - Install mongodb
 ```
@@ -91,3 +88,14 @@ before you run below code you should build image and push to local registry. (Yo
 
 helm upgrade --install app ./helm/app -n urlshortener
 ```
+
+
+# Unittest 
+
+You can run test with vscode run section or 
+
+```
+python manage.py test core.api.v1.test
+```
+
+Be sure you have mongodb up and running
