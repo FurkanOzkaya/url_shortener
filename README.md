@@ -35,7 +35,12 @@ python manage.py handle_zookeeper
 This command will create path according to your enviroment variable.
 
 - TOTAL_POD_COUNT = Total replica count (needed for create path with specific number)
-- DEFAULT_ID_COUNT = Number of the replica (needed for specifying connection path)
+- HOSTNAME = Unique name of pod or given unique path
+
+HOSTNAME value 
+- default app-100 
+- for docker-compose app-101 
+- for k8s app-0 to app-N 
 
 # Deployment
 
@@ -99,3 +104,5 @@ python manage.py test core.api.v1.test
 ```
 
 Be sure you have mongodb up and running
+
+
